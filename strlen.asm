@@ -3,7 +3,7 @@
 ; ./strlen 
 
 section .data
-	message db "Kernelzera", 0xA
+message db "Kernelzera", 0xA
 
 section .text
 	global _start
