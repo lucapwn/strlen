@@ -6,33 +6,33 @@ section .data
 message db "Kernelzera", 0xA
 
 section .text
-	global _start
+global _start
 
 strlen:
-	mov ebx, 0
+    mov ebx, 0
 
 next:
-	cmp byte [esi + ebx], 0
-	je end
+    cmp byte [esi + ebx], 0
+    je end
 
-	inc ebx
-	jmp next
+    inc ebx
+    jmp next
 
 end:
-	mov eax, ebx
-	ret
+    mov eax, ebx
+    ret
 
 _start:
-	mov esi, message
-	call strlen
+    mov esi, message
+    call strlen
 
-	mov edx, eax
-	mov ecx, message
-	mov ebx, 1
-	mov eax, 4
-	int 80h
+    mov edx, eax
+    mov ecx, message
+    mov ebx, 1
+    mov eax, 4
+    int 80h
 
-	mov eax, 1
-	mov ebx, 0
-	int 80h
+    mov eax, 1
+    mov ebx, 0
+    int 80h
 	
