@@ -1,18 +1,18 @@
 section .data
-message db "@lucapwn", 0xA
+    message: db "@lucapwn", 0xA
 
 section .text
-global _start
+    global _start
 
-strlen:
-    mov ebx, 0
+_strlen:
+    mov ebx, 0x0
 
-next:
-    cmp byte [esi + ebx], 0
-    je end
+_next:
+    cmp byte [esi + ebx], 0x0
+    je _end
 
     inc ebx
-    jmp next
+    jmp _next
 
 end:
     mov eax, ebx
@@ -20,14 +20,14 @@ end:
 
 _start:
     mov esi, message
-    call strlen
+    jmp _strlen
 
     mov edx, eax
     mov ecx, message
-    mov ebx, 1
-    mov eax, 4
+    mov ebx, 0x1
+    mov eax, 0x4
     int 0x80
 
-    mov eax, 1
-    mov ebx, 0
+    mov eax, 0x1
+    mov ebx, 0x0
     int 0x80
