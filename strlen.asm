@@ -14,7 +14,7 @@ _next:
     inc ebx
     jmp _next
 
-end:
+_end:
     mov eax, ebx
     ret
 
